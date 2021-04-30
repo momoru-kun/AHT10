@@ -24,10 +24,10 @@ class AHT10:
         temp = ((data[3] & 0x0F) << 16) | (data[4] << 8) | data[5]
         ctemp = ((temp*200) / 1048576) - 50
         hum = ((data[1] << 16) | (data[2] << 8) | data[3]) >> 4
-        chum = int(tmp * 100 / 1048576)
+        chum = int(temp * 100 / 1048576)
         return (ctemp, chum)
 
 if __name__ =="__main__":
-    m = AHT10_Driver(1)
+    m = AHT10(1)
     data = m.getData()
     print("Temperature is {} Celsius\nHumidity is {}%".format(data[0], data[1]))
