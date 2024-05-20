@@ -11,7 +11,8 @@ class AHT10:
     def __init__(self, bus, addr=0x38):
         self.bus = smbus.SMBus(bus)
         self.addr = addr
-        self.bus.write_i2c_block_data(self.addr, 0xE1, self.CONFIG)
+        #BAD CODE:
+        #self.bus.write_i2c_block_data(self.addr, 0xE1, self.CONFIG)
         time.sleep(0.2) #Wait for AHT to do config (0.2ms from datasheet)
 
     # getData - gets temperature and humidity
